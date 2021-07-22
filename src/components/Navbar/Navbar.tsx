@@ -15,41 +15,52 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
   const aboutRef = useRef<HTMLSpanElement | null>(null);
   const technologiesRef = useRef<HTMLSpanElement | null>(null);
   const projectstRef = useRef<HTMLSpanElement | null>(null);
-  const handleAnimation = (ref: HTMLSpanElement): gsap.core.Timeline => {
-    return gsap.timeline({ paused: true }).to(
-      ref,
-      {
-        width: "100%",
-        background: UNDERLINE_COLOR,
-        height: UNDERLINE_HEIGHT,
-        immediateRender: false,
-      },
-      0
-    );
-  };
-  const handleReverse = (ref: HTMLSpanElement): gsap.core.Timeline => {
-    return gsap.timeline({ paused: true }).to(
-      ref,
+  const aboutTl = gsap.timeline({ paused: true });
+  const techTl = gsap.timeline({ paused: true });
+  const projectsTl = gsap.timeline({ paused: true });
+  useEffect(() => {
+    if (!(aboutRef.current && technologiesRef.current && projectstRef.current))
+      return;
+    aboutTl.fromTo(
+      aboutRef.current,
       {
         width: 0,
         background: UNDERLINE_COLOR,
         height: UNDERLINE_HEIGHT,
-        immediateRender: false,
+        ease: ANIMATION_EASE,
       },
-      0
+      { width: "100%" }
     );
-  };
+    techTl.fromTo(
+      technologiesRef.current,
+      {
+        width: 0,
+        background: UNDERLINE_COLOR,
+        height: UNDERLINE_HEIGHT,
+        ease: ANIMATION_EASE,
+      },
+      { width: "100%" }
+    );
+    projectsTl.fromTo(
+      projectstRef.current,
+      {
+        width: 0,
+        background: UNDERLINE_COLOR,
+        height: UNDERLINE_HEIGHT,
+        ease: ANIMATION_EASE,
+      },
+      { width: "100%" }
+    );
+  }, []);
   return (
     <nav>
       <ul>
         <li
           onMouseEnter={() => {
-            if (!aboutRef.current) return;
-            handleAnimation(aboutRef.current).play();
+            aboutTl.play();
           }}
           onMouseLeave={() => {
-            if (!aboutRef.current) return;
-            handleReverse(aboutRef.current).play();
+            aboutTl.reverse();
           }}
         >
           <a>Обо мне</a>
@@ -57,12 +68,10 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
         </li>
         <li
           onMouseEnter={() => {
-            if (!technologiesRef.current) return;
-            handleAnimation(technologiesRef.current).play();
+            techTl.play();
           }}
           onMouseLeave={() => {
-            if (!technologiesRef.current) return;
-            handleReverse(technologiesRef.current).play();
+            techTl.reverse();
           }}
         >
           <a>Технологии</a>
@@ -70,12 +79,10 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
         </li>
         <li
           onMouseEnter={() => {
-            if (!projectstRef.current) return;
-            handleAnimation(projectstRef.current).play();
+            projectsTl.play();
           }}
           onMouseLeave={() => {
-            if (!projectstRef.current) return;
-            handleReverse(projectstRef.current).play();
+            projectsTl.reverse();
           }}
         >
           <a>Проекты</a>
