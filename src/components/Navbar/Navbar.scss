@@ -1,0 +1,31 @@
+nav {
+  z-index: 999;
+  height: 15vh;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  ul {
+    display: flex;
+    gap: 2rem;
+    li {
+      font-size: 1.2em;
+      letter-spacing: 0.06em;
+      font-weight: 600;
+      position: relative;
+      padding: 1.6rem;
+      overflow: hidden;
+      a:hover {
+        transition: 0.3s ease-in-out;
+        color: rgb(53, 140, 214);
+      }
+      span {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+      }
+    }
+  }
+}
