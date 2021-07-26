@@ -1,15 +1,13 @@
-import React from "react";
-import { useRef } from "react";
+import gsap, { Power0 } from "gsap";
+import React, { useEffect, useMemo, useRef } from "react";
 import "./Header.scss";
-import gsap from "gsap";
-import { Power0 } from "gsap";
-import { useState } from "react";
-import { useEffect } from "react";
 
+// ANIMATION SETTING
 const ANIMATION_EASE = Power0.easeIn;
 const SIDE_WIDTH = 7;
 const ANIMATION_DURATION = 0.4;
 const SIDE_COLOR = "salmon";
+//
 
 interface HeaderProps {}
 
@@ -18,17 +16,8 @@ export const Header: React.FC<HeaderProps> = ({}) => {
   const topSideRef = useRef<HTMLDivElement | null>(null);
   const rightSideRef = useRef<HTMLDivElement | null>(null);
   const bottomSideRef = useRef<HTMLDivElement | null>(null);
-  const tl = gsap.timeline({ paused: true });
+  const tl = useMemo(() => gsap.timeline({ paused: true }), []);
   useEffect(() => {
-    if (
-      !(
-        leftSideRef.current ||
-        topSideRef.current ||
-        rightSideRef.current ||
-        bottomSideRef.current
-      )
-    )
-      return;
     tl.fromTo(
       leftSideRef.current,
       {

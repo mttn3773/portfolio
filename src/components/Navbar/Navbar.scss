@@ -1,30 +1,18 @@
 nav {
   z-index: 999;
-  height: 15vh;
+  height: 12vh;
   position: fixed;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.1);
+  transition: 0.6s ease-in-out;
+  background-color: rgba(0, 0, 0, 0.8);
+  &.transparent {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
   ul {
     display: flex;
     gap: 2rem;
-    li {
-      font-size: 1.2em;
-      letter-spacing: 0.06em;
-      font-weight: 600;
-      position: relative;
-      padding: 1.6rem;
-      a:hover {
-        transition: 0.3s ease-in-out;
-        color: rgb(53, 140, 214);
-      }
-      span {
-        position: absolute;
-        left: 0;
-        bottom: 0;
-      }
-    }
   }
 }

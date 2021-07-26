@@ -1,93 +1,63 @@
-import React from "react";
+import gsap, { Power0 } from "gsap";
+import React, { createRef, useEffect, useState } from "react";
+import { NavLink } from "../NavLink/NavLink";
+import { CONFIG } from "../../content.config";
 import "./Navbar.scss";
-import gsap from "gsap";
-import { Power0 } from "gsap";
-import { useRef } from "react";
-import { useState } from "react";
-import { useEffect } from "react";
-interface NavbarProps {}
 
+const LINKS = CONFIG.links;
+
+// ANIMATION SETTING
 const UNDERLINE_HEIGHT = 2;
 const ANIMATION_EASE = Power0.easeInOut;
+const ANIMATION_DURATION = 0.5;
 const UNDERLINE_COLOR = "salmon";
+//
 
-export const Navbar: React.FC<NavbarProps> = ({}) => {
-  const aboutRef = useRef<HTMLSpanElement | null>(null);
-  const technologiesRef = useRef<HTMLSpanElement | null>(null);
-  const projectstRef = useRef<HTMLSpanElement | null>(null);
-  const aboutTl = gsap.timeline({ paused: true });
-  const techTl = gsap.timeline({ paused: true });
-  const projectsTl = gsap.timeline({ paused: true });
+interface NavbarProps {
+  isTransparent: boolean;
+}
+export interface ILink {
+  name: string;
+  to: string;
+  ref: React.MutableRefObject<HTMLSpanElement | null>;
+  tl: gsap.core.Timeline;
+}
+export const Navbar: React.FC<NavbarProps> = ({ isTransparent }) => {
+  const [links, setLinks] = useState<ILink[]>([]);
   useEffect(() => {
-    if (!(aboutRef.current && technologiesRef.current && projectstRef.current))
-      return;
-    aboutTl.fromTo(
-      aboutRef.current,
-      {
-        width: 0,
-        background: UNDERLINE_COLOR,
-        height: UNDERLINE_HEIGHT,
-        ease: ANIMATION_EASE,
-      },
-      { width: "100%" }
-    );
-    techTl.fromTo(
-      technologiesRef.current,
-      {
-        width: 0,
-        background: UNDERLINE_COLOR,
-        height: UNDERLINE_HEIGHT,
-        ease: ANIMATION_EASE,
-      },
-      { width: "100%" }
-    );
-    projectsTl.fromTo(
-      projectstRef.current,
-      {
-        width: 0,
-        background: UNDERLINE_COLOR,
-        height: UNDERLINE_HEIGHT,
-        ease: ANIMATION_EASE,
-      },
-      { width: "100%" }
-    );
+    if (links.length === LINKS.length) return;
+    LINKS.forEach(({ name, to }) => {
+      const ref = createRef<null>();
+      const tl = gsap.timeline({ paused: true });
+      setLinks((prev) => [...prev, { ref, tl, name, to }]);
+    });
   }, []);
+  useEffect(() => {
+    if (!(links.length === LINKS.length)) return;
+    links.forEach(({ ref, tl }) => {
+      tl.fromTo(
+        ref.current,
+        {
+          width: 0,
+          background: UNDERLINE_COLOR,
+          height: UNDERLINE_HEIGHT,
+          ease: ANIMATION_EASE,
+          duration: ANIMATION_DURATION,
+        },
+        { width: "100%" }
+      );
+    });
+  }, [links]);
   return (
-    <nav>
+    <nav className={isTransparent ? "transparent" : ""}>
       <ul>
-        <li
-          onMouseEnter={() => {
-            aboutTl.play();
-          }}
-          onMouseLeave={() => {
-            aboutTl.reverse();
-          }}
-        >
-          <a>Обо мне</a>
-          <span ref={aboutRef}></span>
-        </li>
-        <li
-          onMouseEnter={() => {
-            techTl.play();
-          }}
-          onMouseLeave={() => {
-            techTl.reverse();
-          }}
-        >
-          <a>Технологии</a>
-          <span ref={technologiesRef}></span>
-        </li>
-        <li
-          onMouseEnter={() => {
-            projectsTl.play();
-          }}
-          onMouseLeave={() => {
-            projectsTl.reverse();
-          }}
-        >
-          <a>Проекты</a>
-          <span ref={projectstRef}></span>
-        </li>
+        {links.map((link, index) => {
+          return (
+            <div key={index} className="link-wrapper">
+              <NavLink link={link} />
+            </div>
+          );
+        })}
       </ul>
     </nav>
   );
