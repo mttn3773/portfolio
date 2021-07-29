@@ -6,7 +6,7 @@ import "./Layout.scss";
 interface LayoutProps {}
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
-  const [offset, setOffset] = useState<number>(0);
+  const [offset, setOffset] = useState<number>(window.pageYOffset);
   useEffect(() => {
     window.onscroll = () => {
       setOffset(window.pageYOffset);

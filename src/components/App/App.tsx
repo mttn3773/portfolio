@@ -12,14 +12,18 @@ function App() {
       <section className="header-section">
         <Header />
       </section>
+      <hr className="section-seaprator" />
       <Element name={SECTIONS.about}>
         <section className="about">
           <About />
         </section>
       </Element>
-      <section className="technologies">
-        <Technologies />
-      </section>
+      <hr className="section-seaprator" />
+      <Element name={SECTIONS.technologies}>
+        <section className="technologies">
+          <Technologies />
+        </section>
+      </Element>
     </Layout>
   );
 }

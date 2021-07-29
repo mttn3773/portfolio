@@ -21,7 +21,7 @@ export const NavLink: React.FC<NavLinkProps> = ({ link }) => {
       <Link
         activeClass="active"
         to={to}
-        offset={-150}
+        offset={-100}
         duration={500}
         smooth="true"
         spy={true}
