@@ -3,6 +3,7 @@ import React, { createRef, useEffect, useState } from "react";
 import { NavLink } from "../NavLink/NavLink";
 import { CONFIG } from "../../content.config";
 import "./Navbar.scss";
+import { v4 } from "uuid";
 
 const LINKS = CONFIG.links;
 
@@ -51,9 +52,9 @@ export const Navbar: React.FC<NavbarProps> = ({ isTransparent }) => {
   return (
     <nav className={isTransparent ? "transparent" : ""}>
       <ul>
-        {links.map((link, index) => {
+        {links.map((link) => {
           return (
-            <div key={index} className="link-wrapper">
+            <div key={v4()} className="link-wrapper">
               <NavLink link={link} />
             </div>
           );

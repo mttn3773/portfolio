@@ -3,6 +3,7 @@ import { useState } from "react";
 import { ITechnologies } from "../../content.config";
 import "./Technologies.scss";
 import { CONFIG } from "../../content.config";
+import { v4 } from "uuid";
 import FlipMove from "react-flip-move";
 interface TechnologiesProps {}
 
@@ -24,12 +25,12 @@ export const Technologies: React.FC<TechnologiesProps> = ({}) => {
       <h1>ТЕХНОЛОГИИ</h1>
       <div className="technologies-container">
         <div className="selector-container">
-          {categoriesArray().map((category, index) => {
+          {categoriesArray().map((category) => {
             const isActive = !!(display === category);
             const activeClass = isActive ? "active" : "";
             return (
               <button
-                key="index"
+                key={v4()}
                 onClick={() => handleChangeDisplay(category)}
                 className={`selector-btn ${activeClass}`}
               >
@@ -46,11 +47,11 @@ export const Technologies: React.FC<TechnologiesProps> = ({}) => {
             leaveAnimation="fade"
             maintainContainerHeight
           >
-            {technologies[display].map(({ name, icon, url }, index) => {
+            {technologies[display].map(({ name, icon, url }) => {
               return (
-                <div key={index} className="item-container">
-                  <a href={url} target="_blank">
-                    <img src={icon} className="item-logo" />
+                <div key={v4()} className="item-container">
+                  <a href={url} rel="noreferrer" target="_blank">
+                    <img alt={name} src={icon} className="item-logo" />
                   </a>
                   {name}
                 </div>

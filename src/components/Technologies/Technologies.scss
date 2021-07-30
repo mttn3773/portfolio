@@ -8,19 +8,20 @@
   display: flex;
   flex-direction: column;
   gap: 3rem;
-  height: 100vh;
+  min-height: 50vh;
   width: 70%;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 1rem;
   padding: 3rem 3rem;
   .selector-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     .selector-btn {
+      width: 50%;
       color: #333333;
       text-transform: uppercase;
-      text-indent: 0.1em;
-      font-size: 1.4em;
+      text-indent: 0.1rem;
+      font-size: 1.4rem;
       background: none;
       border: none;
       outline: none;
@@ -37,20 +38,23 @@
 .items-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   align-items: center;
   color: #333333;
-  gap: 1rem;
+  justify-content: center;
+  gap: 3rem;
   .item-container {
-    width: 8%;
     display: flex;
+    width: 10%;
     flex-direction: column;
-    gap: 1rem;
-    justify-content: center;
+    height: 8rem;
+    gap: 1.2rem;
     align-items: center;
     color: #333333;
     .item-logo {
-      width: 100%;
+      width: 4rem;
+      height: 3rem;
+      max-height: 3rem;
+      object-fit: contain;
     }
   }
 }
