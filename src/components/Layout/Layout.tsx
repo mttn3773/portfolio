@@ -12,10 +12,10 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
       setOffset(window.pageYOffset);
     };
   }, []);
-  const isTransparent = !!(offset < 500);
+  const isNavTransparent = !!(offset < 500);
   return (
     <>
-      <Navbar isTransparent={isTransparent} />
+      <Navbar isTransparent={isNavTransparent} />
       {children}
     </>
   );

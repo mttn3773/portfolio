@@ -1,11 +1,8 @@
 import gsap, { Power0 } from "gsap";
 import React, { createRef, useEffect, useState } from "react";
+import { config } from "../../content";
 import { NavLink } from "../NavLink/NavLink";
-import { CONFIG } from "../../content.config";
 import "./Navbar.scss";
-import { v4 } from "uuid";
-
-const LINKS = CONFIG.links;
 
 // ANIMATION SETTING
 const UNDERLINE_HEIGHT = 2;
@@ -25,6 +22,7 @@ export interface ILink {
 }
 export const Navbar: React.FC<NavbarProps> = ({ isTransparent }) => {
   const [links, setLinks] = useState<ILink[]>([]);
+  const { sections, links: LINKS } = config;
   useEffect(() => {
     if (links.length === LINKS.length) return;
     LINKS.forEach(({ name, to }) => {
@@ -52,9 +50,9 @@ export const Navbar: React.FC<NavbarProps> = ({ isTransparent }) => {
   return (
     <nav className={isTransparent ? "transparent" : ""}>
       <ul>
-        {links.map((link) => {
+        {links.map((link, index) => {
           return (
-            <div key={v4()} className="link-wrapper">
+            <div key={index} className="link-wrapper">
               <NavLink link={link} />
             </div>
           );

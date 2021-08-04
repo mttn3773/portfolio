@@ -1,7 +1,3 @@
-interface ILinkItem {
-  name: string;
-  to: SECTIONS;
-}
 export interface ITechnologyItem {
   name: string;
   icon: string;
@@ -11,15 +7,7 @@ export interface ITechnologies {
   frontend: ITechnologyItem[];
   backend: ITechnologyItem[];
 }
-export enum SECTIONS {
-  about = "about",
-  technologies = "technologies",
-  projects = "projects",
-  contacts = "contacts",
-}
-
 const ICONS_FOLDER = `${process.env.PUBLIC_URL}/tech-icons`;
-
 export const TECHNOLOGIES: ITechnologies = {
   frontend: [
     {
@@ -125,6 +113,11 @@ export const TECHNOLOGIES: ITechnologies = {
       url: "https://nodejs.org/en/",
     },
     {
+      name: "Git",
+      icon: `${ICONS_FOLDER}/git-icon.svg`,
+      url: "https://git-scm.com/",
+    },
+    {
       name: "Express",
       icon: `${ICONS_FOLDER}/express-icon.png`,
       url: "https://expressjs.com/ru/",
@@ -133,6 +126,11 @@ export const TECHNOLOGIES: ITechnologies = {
       name: "NestJS",
       icon: `${ICONS_FOLDER}/nestjs-icon.svg`,
       url: "https://nestjs.com/",
+    },
+    {
+      name: "Jest",
+      icon: `${ICONS_FOLDER}/jest-icon.svg`,
+      url: "https://jestjs.io/ru/",
     },
     {
       name: "SQL",
@@ -199,22 +197,5 @@ export const TECHNOLOGIES: ITechnologies = {
       icon: `${ICONS_FOLDER}/nodemailer-icon.png`,
       url: "https://nodemailer.com/about/",
     },
-    {
-      name: "Git",
-      icon: `${ICONS_FOLDER}/git-icon.svg`,
-      url: "https://git-scm.com/",
-    },
   ],
-};
-
-const LINKS: ILinkItem[] = [
-  { name: "Обо мне", to: SECTIONS.about },
-  { name: "Технологии", to: SECTIONS.technologies },
-  { name: "Проекты", to: SECTIONS.projects },
-  { name: "Контакты", to: SECTIONS.contacts },
-];
-
-export const CONFIG = {
-  technologies: TECHNOLOGIES,
-  links: LINKS,
 };
