@@ -1,5 +1,5 @@
 nav {
-  z-index: 999;
+  z-index: 998;
   height: 12vh;
   position: fixed;
   width: 100%;
@@ -14,5 +14,25 @@ nav {
   ul {
     display: flex;
     gap: 2rem;
+  }
+  .menu-container {
+    display: none;
+  }
+  @media screen and (max-width: 900px) {
+    justify-content: flex-end;
+    padding-right: 3rem;
+    ul {
+      display: none;
+    }
+    .menu-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      svg {
+        color: #efefef;
+        width: 2.4rem;
+        height: 2.4rem;
+      }
+    }
   }
 }

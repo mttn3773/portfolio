@@ -1,0 +1,28 @@
+.sidebar-container {
+  z-index: 999;
+  width: 45%;
+  height: 100%;
+  position: fixed;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  ul {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+  }
+  button {
+    right: 1rem;
+    top: 1rem;
+    position: absolute;
+    svg {
+      width: 2rem;
+      height: 2rem;
+      color: #df5555;
+    }
+  }
+}

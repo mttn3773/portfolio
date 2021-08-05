@@ -12,11 +12,28 @@ import { IProject } from "../../content/projects";
 function App() {
   const [project, setProject] = useState<IProject | null>(null);
   const { sections, projects } = config;
+  const handleSetNextProject = () => {
+    if (!project) return;
+    const index = projects.indexOf(project);
+    if (index + 1 === projects.length) return setProject(projects[0]);
+    return setProject(projects[index + 1]);
+  };
+  const handleSetPreviousProject = () => {
+    if (!project) return;
+    const index = projects.indexOf(project);
+    if (index - 1 < 0) return setProject(projects[projects.length - 1]);
+    return setProject(projects[index - 1]);
+  };
   const closeModal = () => setProject(null);
   return (
     <Layout>
-      <ProjectModal close={closeModal} project={project} />
-      <section className="header-section">
+      <ProjectModal
+        next={handleSetNextProject}
+        previous={handleSetPreviousProject}
+        close={closeModal}
+        project={project}
+      />
+      <section className="header">
         <Header />
       </section>
       <hr className="section-seaprator" />

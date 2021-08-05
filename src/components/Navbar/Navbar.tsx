@@ -1,5 +1,7 @@
 import gsap, { Power0 } from "gsap";
 import React, { createRef, useEffect, useState } from "react";
+import { AiOutlineMenu } from "react-icons/ai";
+
 import { config } from "../../content";
 import { NavLink } from "../NavLink/NavLink";
 import "./Navbar.scss";
@@ -13,6 +15,7 @@ const UNDERLINE_COLOR = "salmon";
 
 interface NavbarProps {
   isTransparent: boolean;
+  toggleMenu: () => void;
 }
 export interface ILink {
   name: string;
@@ -20,9 +23,12 @@ export interface ILink {
   ref: React.MutableRefObject<HTMLSpanElement | null>;
   tl: gsap.core.Timeline;
 }
-export const Navbar: React.FC<NavbarProps> = ({ isTransparent }) => {
+export const Navbar: React.FC<NavbarProps> = ({
+  isTransparent,
+  toggleMenu,
+}) => {
   const [links, setLinks] = useState<ILink[]>([]);
-  const { sections, links: LINKS } = config;
+  const { links: LINKS } = config;
   useEffect(() => {
     if (links.length === LINKS.length) return;
     LINKS.forEach(({ name, to }) => {
@@ -58,6 +64,11 @@ export const Navbar: React.FC<NavbarProps> = ({ isTransparent }) => {
           );
         })}
       </ul>
+      <div className="menu-container">
+        <button>
+          <AiOutlineMenu onClick={toggleMenu} />
+        </button>
+      </div>
     </nav>
   );
 };

@@ -1,5 +1,21 @@
 section {
   margin-bottom: 4rem;
+  margin: 0 auto;
+  &.header {
+    width: 100%;
+  }
+  &.about {
+    width: 60%;
+    @media screen and (max-width: 900px) {
+      width: 90%;
+    }
+  }
+  &.technologies {
+    width: 70%;
+    @media screen and (max-width: 900px) {
+      width: 100%;
+    }
+  }
 }
 .section-seaprator {
   width: 60%;

@@ -26,3 +26,15 @@ button {
   outline: none;
   cursor: pointer;
 }
+::-webkit-scrollbar {
+  width: 1rem;
+}
+::-webkit-scrollbar-track {
+  background: #b8b8b8;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(31, 30, 30);
+  &:hover {
+    background: rgb(48, 46, 46);
+  }
+}

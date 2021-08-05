@@ -13,8 +13,8 @@ export const Projects: React.FC<ProjectsProps> = ({ setProject }) => {
     <div className="projects-wrapper">
       <h1>ПРОЕКТЫ</h1>
       <div className="projects-container">
-        {projects.map((project) => (
-          <ProjectCard setProject={setProject} project={project} />
+        {projects.map((project, index) => (
+          <ProjectCard key={index} setProject={setProject} project={project} />
         ))}
       </div>
     </div>
