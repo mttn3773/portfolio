@@ -16,6 +16,12 @@ section {
       width: 100%;
     }
   }
+  &.projects {
+    width: 80%;
+    @media screen and (max-width: 900px) {
+      width: 100%;
+    }
+  }
 }
 .section-seaprator {
   width: 60%;
