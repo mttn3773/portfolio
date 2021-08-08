@@ -1,0 +1,34 @@
+.contacts-container {
+  background-color: #333;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 3rem 3rem 3rem;
+  h1 {
+    color: #efefef;
+    align-self: center;
+  }
+  .contacts {
+    gap: 2rem;
+    width: fit-content;
+    display: grid;
+    grid-template-areas: "categories values";
+    .column {
+      justify-content: flex-start;
+      display: flex;
+      flex-direction: column;
+      &.categories {
+        grid-area: categories;
+      }
+      &.values {
+        grid-area: values;
+      }
+    }
+  }
+
+  a {
+    &:hover {
+      color: lightblue;
+    }
+  }
+}

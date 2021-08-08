@@ -1,12 +1,12 @@
-import gsap from "gsap/all";
 import React from "react";
+import { useState, useEffect, useRef } from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
-import { useEffect } from "react";
-import { useRef } from "react";
-import "./SideBar.scss";
+import gsap from "gsap/all";
+
 import { config } from "../../content";
-import { useState } from "react";
 import { Link } from "react-scroll";
+import "./SideBar.scss";
+
 interface SideBarProps {
   isOpen: boolean;
   close: () => void;

@@ -57,8 +57,8 @@
 @media screen and (max-width: 900px) {
   .project-card-container {
     flex-direction: column;
+    padding: 0;
     gap: 2rem;
-
     .image-container {
       width: 100%;
     }

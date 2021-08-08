@@ -1,3 +1,4 @@
+import { CONTACTS } from "./contacts";
 import { PROJECTS } from "./projects";
 import { LINKS } from "./links";
 import { SECTIONS } from "./sections";
@@ -8,4 +9,5 @@ export const config = {
   sections: SECTIONS,
   technologies: TECHNOLOGIES,
   projects: PROJECTS,
+  contacts: CONTACTS,
 };

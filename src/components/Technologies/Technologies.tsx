@@ -1,15 +1,17 @@
 import React from "react";
 import { useState } from "react";
-import { ITechnologies } from "../../content/techonologies";
-import "./Technologies.scss";
-import { config } from "../../content";
 import { v4 } from "uuid";
 import FlipMove from "react-flip-move";
+
+import { ITechnologies } from "../../content/techonologies";
+import { config } from "../../content";
+import "./Technologies.scss";
+
 interface TechnologiesProps {}
 
 type Category = keyof ITechnologies;
 
-export const Technologies: React.FC<TechnologiesProps> = ({}) => {
+export const Technologies: React.FC<TechnologiesProps> = () => {
   const [display, setDisplay] = useState<Category>("backend");
   const { technologies } = config;
   const categoriesArray = (): Category[] => {

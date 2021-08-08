@@ -1,9 +1,11 @@
 import React from "react";
+
 import { useState } from "react";
 import { useEffect } from "react";
 import { Navbar } from "../Navbar/Navbar";
 import { SideBar } from "../SideBar/SideBar";
 import "./Layout.scss";
+
 interface LayoutProps {}
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {

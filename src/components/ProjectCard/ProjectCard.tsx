@@ -1,10 +1,10 @@
 import React from "react";
-import { useState } from "react";
+
 import { IProject } from "../../content/projects";
 import "./ProjectCard.scss";
+
 interface ProjectCardProps {
   project: IProject;
-  setProject: React.Dispatch<React.SetStateAction<IProject | null>>;
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
@@ -19,7 +19,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
     <div className="project-card-container">
       <div className="image-container">
-        <img src={project.images[0]} alt="Chat App Image" />
+        <img src={project.images[0]} alt="Chat App " />
         <div className="demo-btn-group">
           <a
             href={project.liveDemoLink}

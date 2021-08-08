@@ -2,7 +2,7 @@ import React from "react";
 import "./About.scss";
 interface AboutProps {}
 
-export const About: React.FC<AboutProps> = ({}) => {
+export const About: React.FC<AboutProps> = () => {
   return (
     <div className="about-container">
       <h1> ОБО МНЕ </h1>

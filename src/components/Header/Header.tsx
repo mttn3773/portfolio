@@ -1,5 +1,6 @@
 import gsap, { Power0 } from "gsap";
 import React, { useEffect, useMemo, useRef } from "react";
+
 import "./Header.scss";
 
 // ANIMATION SETTING
@@ -11,7 +12,7 @@ const SIDE_COLOR = "salmon";
 
 interface HeaderProps {}
 
-export const Header: React.FC<HeaderProps> = ({}) => {
+export const Header: React.FC<HeaderProps> = () => {
   const leftSideRef = useRef<HTMLDivElement | null>(null);
   const topSideRef = useRef<HTMLDivElement | null>(null);
   const rightSideRef = useRef<HTMLDivElement | null>(null);
@@ -65,7 +66,7 @@ export const Header: React.FC<HeaderProps> = ({}) => {
         },
         { background: SIDE_COLOR, width: "100%" }
       );
-  }, []);
+  }, [tl]);
   return (
     <div className="header-container">
       <div

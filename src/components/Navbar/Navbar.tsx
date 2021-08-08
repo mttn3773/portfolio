@@ -36,7 +36,7 @@ export const Navbar: React.FC<NavbarProps> = ({
       const tl = gsap.timeline({ paused: true });
       setLinks((prev) => [...prev, { ref, tl, name, to }]);
     });
-  }, []);
+  }, [LINKS]);
   useEffect(() => {
     if (!(links.length === LINKS.length)) return;
     links.forEach(({ ref, tl }) => {
