@@ -27,7 +27,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             rel="noreferrer"
             className="demo-btn live"
           >
-            LIVE DEMO
+            LIVE-ДЕМО
           </a>
           <a
             href={project.codeLink}
@@ -35,7 +35,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             rel="noreferrer"
             className="demo-btn code"
           >
-            SHOW CODE{" "}
+            ПОКАЗАТЬ КОД
           </a>
         </div>
       </div>
@@ -44,7 +44,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           <h2>{project.name}</h2>
         </div>
         <div className="description-container">
-          <h3>DESCRIPTION: </h3>
+          <h3>ОПИСАНИЕ: </h3>
           <p>{project.description}</p>
         </div>
         <div className="frontend-container">

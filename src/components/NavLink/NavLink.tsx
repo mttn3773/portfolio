@@ -6,12 +6,14 @@ import "./NavLink.scss";
 
 interface NavLinkProps {
   link: ILink;
+  offset: number;
 }
 
-export const NavLink: React.FC<NavLinkProps> = ({ link }) => {
+export const NavLink: React.FC<NavLinkProps> = ({ link, offset }) => {
   const { name, tl, ref, to } = link;
   return (
     <li
+      className="nav-link"
       onMouseEnter={() => {
         tl.play();
       }}
@@ -22,7 +24,7 @@ export const NavLink: React.FC<NavLinkProps> = ({ link }) => {
       <Link
         activeClass="active"
         to={to}
-        offset={-100}
+        offset={offset}
         duration={500}
         smooth="true"
         spy={true}

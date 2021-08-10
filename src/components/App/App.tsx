@@ -17,30 +17,38 @@ function App() {
       <section className="header">
         <Header />
       </section>
-      <hr className="section-seaprator" />
-      <Element name={sections.about}>
-        <section className="about">
+      <section className="about">
+        <Element name={sections.about}>
+          <div className="section-seaprator">
+            <hr />
+          </div>
           <About />
-        </section>
-      </Element>
-      <hr className="section-seaprator" />
-      <Element name={sections.technologies}>
-        <section className="technologies">
+        </Element>
+      </section>
+      <section className="technologies">
+        <Element name={sections.technologies}>
+          <div className="section-seaprator">
+            <hr />
+          </div>
           <Technologies />
-        </section>
-      </Element>
-      <hr className="section-seaprator" />
-      <Element name={sections.projects}>
-        <section className="projects">
+        </Element>
+      </section>
+      <section className="projects">
+        <Element name={sections.projects}>
+          <div className="section-seaprator">
+            <hr />
+          </div>
           <Projects />
-        </section>
-      </Element>
-      <hr className="section-seaprator" />
-      <Element name={sections.contacts}>
-        <section className="contacts">
+        </Element>
+      </section>
+      <section className="contacts">
+        <Element name={sections.contacts}>
+          <div className="section-seaprator">
+            <hr />
+          </div>
           <Contacts />
-        </section>
-      </Element>
+        </Element>
+      </section>
     </Layout>
   );
 }

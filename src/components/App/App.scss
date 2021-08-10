@@ -5,9 +5,9 @@ section {
     width: 100%;
   }
   &.about {
-    width: 60%;
+    width: 75%;
     @media screen and (max-width: 900px) {
-      width: 90%;
+      width: 95%;
     }
   }
   &.technologies {
@@ -27,8 +27,14 @@ section {
   }
 }
 .section-seaprator {
-  width: 60%;
-  background-color: rgb(53, 140, 214);
-  height: 3px;
-  margin-bottom: 5rem;
+  padding-bottom: 5rem;
+  padding-top: 5rem;
+  hr {
+    width: 60%;
+    background-color: rgb(53, 140, 214);
+    height: 3px;
+  }
+}
+.empty-space {
+  height: 200px;
 }

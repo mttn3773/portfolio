@@ -26,6 +26,11 @@ export const TECHNOLOGIES: ITechnologies = {
       url: "http://htmlbook.ru/css3",
     },
     {
+      name: "SVG",
+      icon: `${ICONS_FOLDER}/svg-icon.svg`,
+      url: "https://developer.mozilla.org/ru/docs/Web/SVG",
+    },
+    {
       name: "Typescript",
       icon: `${ICONS_FOLDER}/typescript-icon.svg`,
       url: "https://www.typescriptlang.org/",
@@ -167,6 +172,12 @@ export const TECHNOLOGIES: ITechnologies = {
       icon: `${ICONS_FOLDER}/redis-icon.svg`,
       url: "https://redis.io/",
     },
+    {
+      name: "JWT",
+      icon: `${ICONS_FOLDER}/jwt-icon.svg`,
+      url: "https://jwt.io/",
+    },
+
     {
       name: "Socket.io",
       icon: `${ICONS_FOLDER}/socket-io-icon.svg`,

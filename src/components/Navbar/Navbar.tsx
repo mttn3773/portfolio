@@ -59,7 +59,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         {links.map((link, index) => {
           return (
             <div key={index} className="link-wrapper">
-              <NavLink link={link} />
+              <NavLink offset={-100} link={link} />
             </div>
           );
         })}
