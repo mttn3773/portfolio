@@ -24,7 +24,7 @@ const TRAITS: ITrait[] = [
       "Разработка API на базе NodeJS",
       "Обеспечение взаимодействия с базой данных",
       "Понимание приципов REST API",
-      "Уменяие работать с фреймворками (Express, NestJS)",
+      "Работа с фреймворками (Express, NestJS)",
     ],
     img: `${IMAGES_FOLDER}/backend.svg`,
   },
