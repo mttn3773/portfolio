@@ -23,7 +23,7 @@ const TRAITS: ITrait[] = [
     items: [
       "Разработка API на базе NodeJS",
       "Обеспечение взаимодействия с базой данных",
-      "Понимание приципов REST API",
+      "Понимание приципов REST API / GraphQL",
       "Работа с фреймворками (Express, NestJS)",
     ],
     img: `${IMAGES_FOLDER}/backend.svg`,
